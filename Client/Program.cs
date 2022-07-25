@@ -7,7 +7,7 @@ using OrleansBasics;
 return RunMainAsync().Result;
 
 
-static async Task<int> RunMainAsync()
+static async ValueTask<int> RunMainAsync()
 {
     try
     {
@@ -29,7 +29,7 @@ static async Task<int> RunMainAsync()
     }
 }
 
-static async Task<IClusterClient> ConnectClient()
+static async ValueTask<IClusterClient> ConnectClient()
 {
     IClusterClient client;
     client = new ClientBuilder()
@@ -47,7 +47,7 @@ static async Task<IClusterClient> ConnectClient()
     return client;
 }
 
-static async Task DoClientWork(IClusterClient client)
+static async ValueTask DoClientWork(IClusterClient client)
 {
     // example of calling grains from the initialized client
     var friend = client.GetGrain<IHello>(0);

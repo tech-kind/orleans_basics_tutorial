@@ -8,7 +8,7 @@ using OrleansBasics;
 return RunMainAsync().Result;
 
 
-static async Task<int> RunMainAsync()
+static async ValueTask<int> RunMainAsync()
 {
     try
     {
@@ -27,7 +27,7 @@ static async Task<int> RunMainAsync()
     }
 }
 
-static async Task<ISiloHost> StartSilo()
+static async ValueTask<ISiloHost> StartSilo()
 {
     // define the cluster configuration
     var builder = new SiloHostBuilder()

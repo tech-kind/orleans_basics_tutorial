@@ -16,10 +16,10 @@ namespace OrleansBasics
             _logger = logger;
         }
 
-        public Task<string> SayHello(string greeting)
+        ValueTask<string> IHello.SayHello(string greeting)
         {
             _logger.LogInformation($"\n SayHello message received: greeting = '{greeting}'");
-            return Task.FromResult($"\n Client said: '{greeting}', so HelloGain says: Hello!");
+            return ValueTask.FromResult($"\n Client said: '{greeting}', so HelloGain says: Hello!");
         }
     }
 }
